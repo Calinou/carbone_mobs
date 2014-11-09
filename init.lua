@@ -490,8 +490,8 @@ carbone_mobs:register_mob("carbone_mobs:trooper", {
 	makes_footstep_sound = true,
 	view_range = 8,
 	lava_damage = 8,
-	walk_velocity = 1.3,
-	run_velocity = 2.6,
+	walk_velocity = 1,
+	run_velocity = 3,
 	damage = 1,
 	drops = {
 		{name = "carbone_mobs:trooper",
@@ -503,8 +503,8 @@ carbone_mobs:register_mob("carbone_mobs:trooper", {
 	drawtype = "front",
 	attack_type = "dogfight",
 	animation = {
-		speed_normal = 17,
-		speed_run = 35,
+		speed_normal = 15,
+		speed_run = 30,
 		stand_start = 0,
 		stand_end = 40,
 		walk_start = 168,
