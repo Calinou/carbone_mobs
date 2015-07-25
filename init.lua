@@ -5,7 +5,7 @@ minetest.setting_set("active_block_range", 1)
 
 carbone_mobs:register_mob("carbone_mobs:dirt_monster", {
 	type = "monster",
-	hp_max = 18,
+	hp_max = 15,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
@@ -14,9 +14,9 @@ carbone_mobs:register_mob("carbone_mobs:dirt_monster", {
 	makes_footstep_sound = true,
 	view_range = 16,
 	walk_velocity = 1.1,
-	run_velocity = 2.2,
+	run_velocity = 2,
 	on_rightclick = nil,
-	damage = 3,
+	damage = 2,
 	drops = {
 		name = "default:dirt",
 		chance = 1,
@@ -51,7 +51,7 @@ minetest.register_craftitem("carbone_mobs:dirt_monster", {
 	inventory_image = "mobs_dirt_monster.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:dirt_monster")
@@ -64,7 +64,7 @@ minetest.register_craftitem("carbone_mobs:dirt_monster", {
 
 carbone_mobs:register_mob("carbone_mobs:stone_monster", {
 	type = "monster",
-	hp_max = 24,
+	hp_max = 20,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
@@ -108,7 +108,7 @@ minetest.register_craftitem("carbone_mobs:stone_monster", {
 	inventory_image = "mobs_stone_monster.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:stone_monster")
@@ -121,7 +121,7 @@ minetest.register_craftitem("carbone_mobs:stone_monster", {
 
 carbone_mobs:register_mob("carbone_mobs:sand_monster", {
 	type = "monster",
-	hp_max = 12,
+	hp_max = 10,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_sand_monster.x",
@@ -130,8 +130,8 @@ carbone_mobs:register_mob("carbone_mobs:sand_monster", {
 	makes_footstep_sound = true,
 	view_range = 16,
 	walk_velocity = 1.8,
-	run_velocity = 3.4,
-	damage = 2,
+	run_velocity = 3,
+	damage = 1,
 	drops = {
 		{name = "default:sand",
 		chance = 1,
@@ -166,7 +166,7 @@ minetest.register_craftitem("carbone_mobs:sand_monster", {
 	inventory_image = "mobs_sand_monster.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:sand_monster")
@@ -179,7 +179,7 @@ minetest.register_craftitem("carbone_mobs:sand_monster", {
 
 carbone_mobs:register_mob("carbone_mobs:sheep", {
 	type = "animal",
-	hp_max = 10,
+	hp_max = 8,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	textures = {"mobs_sheep.png"},
 	visual = "mesh",
@@ -263,7 +263,7 @@ minetest.register_craftitem("carbone_mobs:sheep", {
 	inventory_image = "mobs_sheep.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:sheep")
@@ -321,7 +321,7 @@ minetest.register_craftitem("carbone_mobs:rat", {
 	inventory_image = "mobs_rat_inventory.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:rat")
@@ -331,7 +331,7 @@ minetest.register_craftitem("carbone_mobs:rat", {
 		return itemstack
 	end,
 })
-	
+
 minetest.register_craftitem("carbone_mobs:rat_cooked", {
 	description = "Cooked Rat",
 	inventory_image = "mobs_cooked_rat.png",
@@ -360,7 +360,7 @@ minetest.register_craft({
 
 carbone_mobs:register_mob("carbone_mobs:oerkki", {
 	type = "monster",
-	hp_max = 35,
+	hp_max = 20,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_oerkki.x",
@@ -369,8 +369,8 @@ carbone_mobs:register_mob("carbone_mobs:oerkki", {
 	makes_footstep_sound = false,
 	view_range = 16,
 	walk_velocity = 0.5,
-	run_velocity = 2.5,
-	damage = 4,
+	run_velocity = 2.25,
+	damage = 3,
 	drops = {
 		{name = "default:obsidian",
 		chance = 1,
@@ -405,7 +405,7 @@ minetest.register_craftitem("carbone_mobs:oerkki", {
 	inventory_image = "mobs_oerkki.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:oerkki")
@@ -418,7 +418,7 @@ minetest.register_craftitem("carbone_mobs:oerkki", {
 
 carbone_mobs:register_mob("carbone_mobs:tree_monster", {
 	type = "monster",
-	hp_max = 50,
+	hp_max = 40,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_tree_monster.x",
@@ -468,7 +468,7 @@ minetest.register_craftitem("carbone_mobs:tree_monster", {
 	inventory_image = "mobs_tree_monster.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:tree_monster")
@@ -521,7 +521,7 @@ minetest.register_craftitem("carbone_mobs:trooper", {
 	inventory_image = "player.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			pointed_thing.above.y = pointed_thing.above.y + 0.5
@@ -535,7 +535,7 @@ minetest.register_craftitem("carbone_mobs:trooper", {
 
 carbone_mobs:register_mob("carbone_mobs:dungeon_master", {
 	type = "monster",
-	hp_max = 45,
+	hp_max = 35,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 2.6, 0.7},
 	visual = "mesh",
 	mesh = "mobs_dungeon_master.x",
@@ -584,7 +584,7 @@ minetest.register_craftitem("carbone_mobs:dungeon_master", {
 	inventory_image = "mobs_dungeon_master.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:dungeon_master")
@@ -705,7 +705,7 @@ minetest.register_craftitem("carbone_mobs:rhino", {
 	inventory_image = "mobs_rhino.png",
 	wield_scale = {x = 1.25, y = 1.25, z = 2.5},
 	groups = {not_in_creative_inventory = 1},
-	
+
 	on_place = function(itemstack, placer, pointed_thing)
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:rhino")
@@ -757,22 +757,22 @@ if not minetest.setting_getbool("creative_mode") then -- Disable all mob spawnin
 	if minetest.setting_getbool("spawn_friendly_mobs") ~= false then -- “If nil or true then”
 		local rn = {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}
 		local sn = {"default:dirt_with_grass"}
-		
+
 		carbone_mobs:register_spawn("carbone_mobs:rat", "two rats",                    rn, 16, -1, 7500, 6, 100)
 		carbone_mobs:register_spawn("carbone_mobs:sheep", "a sheep",                   sn, 16, 8, 20000, 2, 100)
 	end
 	if minetest.setting_getbool("spawn_hostile_mobs") ~= false then -- “If nil or true then”
 		local mn = {"default:stone", "default:desert_stone", "default:cobble", "default:mossycobble"}
-		
-		carbone_mobs:register_spawn("carbone_mobs:dirt_monster", "a dirt monster",     mn, 1, -1, 15000, 6, 0)
-		carbone_mobs:register_spawn("carbone_mobs:stone_monster", "a stone monster",   mn, 1, -1, 15000, 4, 0)
-		carbone_mobs:register_spawn("carbone_mobs:sand_monster", "a sand monster",     mn, 1, -1, 15000, 4, 0)
-		carbone_mobs:register_spawn("carbone_mobs:oerkki", "an oerkki",                mn, 1, -1, 20000, 4, 0)
+
+		carbone_mobs:register_spawn("carbone_mobs:dirt_monster", "a dirt monster",     mn, 1, -1, 25000, 6, 0)
+		carbone_mobs:register_spawn("carbone_mobs:stone_monster", "a stone monster",   mn, 1, -1, 25000, 4, 0)
+		carbone_mobs:register_spawn("carbone_mobs:sand_monster", "a sand monster",     mn, 1, -1, 25000, 4, 0)
+		carbone_mobs:register_spawn("carbone_mobs:oerkki", "an oerkki",                mn, 1, -1, 25000, 4, 0)
 		carbone_mobs:register_spawn("carbone_mobs:tree_monster", "a tree monster",     mn, 1, -1, 25000, 2, 0)
-		carbone_mobs:register_spawn("carbone_mobs:trooper", "a trooper",               mn, 1, -1, 25000, 2, 0)
-		
-		carbone_mobs:register_spawn("carbone_mobs:dungeon_master", "a dungeon master", mn, 1, -1, 25000, 2, -50)
-		carbone_mobs:register_spawn("carbone_mobs:rhino", "a rhino",                   mn, 1, -1, 25000, 2, 0)
+
+		carbone_mobs:register_spawn("carbone_mobs:trooper", "a trooper",               mn, 1, -1, 50000, 2, 0)
+		carbone_mobs:register_spawn("carbone_mobs:dungeon_master", "a dungeon master", mn, 1, -1, 50000, 2, -50)
+		carbone_mobs:register_spawn("carbone_mobs:rhino", "a rhino",                   mn, 1, -1, 50000, 2, 0)
 	end
 end
 
