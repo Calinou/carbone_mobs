@@ -3,6 +3,11 @@ local monster_damage = minetest.setting_get("monster_damage_factor") or 1.0
 carbone_mobs = {}
 
 function carbone_mobs:register_mob(name, def)
+
+        -- jump = true as default
+        local is_jumping = if def.jump ~= nil 
+                           then is_jumping = def.jump end
+
 	minetest.register_entity(name, {
 		hp_max = def.hp_max,
 		physical = true,
@@ -32,7 +37,7 @@ function carbone_mobs:register_mob(name, def)
 		sounds = def.sounds,
 		animation = def.animation,
 		follow = def.follow,
-		jump = def.jump or true,
+		jump = is_jumping, 
 		
 		timer = 0,
 		env_damage_timer = 0, -- only if state = "attack"
