@@ -1,9 +1,7 @@
-dofile(minetest.get_modpath("carbone_mobs").."/api.lua")
+dofile(minetest.get_modpath("carbone_mobs") .. "/api.lua")
 
--- Minetest states since 2013 to use lua 5.1 (see http://dev.minetest.net/Lua , https://www.lua.org/manual/5.1/ )
-
--- Ensure the correct active_block_range value is used (for performance and spawning):
--- see http://dev.minetest.net/minetest.register_abm
+-- Ensure the correct active_block_range value is used (for performance and spawning).
+-- See <https://dev.minetest.net/minetest.register_abm>
 minetest.setting_set("active_block_range", 1)
 
 carbone_mobs:register_mob("carbone_mobs:dirt_monster", {
@@ -21,14 +19,12 @@ carbone_mobs:register_mob("carbone_mobs:dirt_monster", {
 	on_rightclick = nil,
 	damage = 2,
 	drops = {
-		name = "default:dirt",
-		chance = 1,
-		min = 4,
-		max = 4,
---		{name = "maptools:silver_coin",
---		chance = 1,
---		min = 2,
---		max = 2,},
+		{
+			name = "default:dirt",
+			chance = 1,
+			min = 4,
+			max = 4,
+		},
 	},
 	armor = 100,
 	drawtype = "front",
@@ -59,8 +55,15 @@ minetest.register_craftitem("carbone_mobs:dirt_monster", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:dirt_monster")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed a dirt monster at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed a dirt monster at " ..
+				minetest.pos_to_string(pointed_thing.above) ..
+				"."
+			)
 		end
+
 		return itemstack
 	end,
 })
@@ -79,14 +82,12 @@ carbone_mobs:register_mob("carbone_mobs:stone_monster", {
 	run_velocity = 1.7,
 	damage = 4,
 	drops = {
-		{name = "default:stone",
-		chance = 1,
-		min = 4,
-		max = 4,},
---		{name = "maptools:silver_coin",
---		chance = 1,
---		min = 3,
---		max = 3,},
+		{
+			name = "default:stone",
+			chance = 1,
+			min = 4,
+			max = 4,
+		},
 	},
 	armor = 80,
 	drawtype = "front",
@@ -116,8 +117,15 @@ minetest.register_craftitem("carbone_mobs:stone_monster", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:stone_monster")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed a stone monster at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed a stone monster at " ..
+				minetest.pos_to_string(pointed_thing.above) ..
+				"."
+			)
 		end
+
 		return itemstack
 	end,
 })
@@ -136,14 +144,12 @@ carbone_mobs:register_mob("carbone_mobs:sand_monster", {
 	run_velocity = 3,
 	damage = 1,
 	drops = {
-		{name = "default:sand",
-		chance = 1,
-		min = 4,
-		max = 4,},
---		{name = "maptools:silver_coin",
---		chance = 1,
---		min = 3,
---		max = 3,},
+		{
+			name = "default:sand",
+			chance = 1,
+			min = 4,
+			max = 4,
+		},
 	},
 	armor = 100,
 	drawtype = "front",
@@ -174,8 +180,15 @@ minetest.register_craftitem("carbone_mobs:sand_monster", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:sand_monster")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed a sand monster at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed a sand monster at " ..
+				minetest.pos_to_string(pointed_thing.above) ..
+				"."
+			)
 		end
+
 		return itemstack
 	end,
 })
@@ -191,14 +204,12 @@ carbone_mobs:register_mob("carbone_mobs:sheep", {
 	walk_velocity = 1,
 	armor = 100,
 	drops = {
-		{name = "carbone_mobs:meat_raw",
-		chance = 1,
-		min = 2,
-		max = 2,},
---		{name = "maptools:copper_coin",
---		chance = 1,
---		min = 5,
---		max = 5,},
+		{
+			name = "carbone_mobs:meat_raw",
+			chance = 1,
+			min = 2,
+			max = 2,
+		},
 	},
 	drawtype = "front",
 	water_damage = 1,
@@ -250,8 +261,7 @@ carbone_mobs:register_mob("carbone_mobs:sheep", {
 			self.naked = true
 			if minetest.registered_items["wool:white"] then
 				clicker:get_inventory():add_item("main", ItemStack("wool:white 2"))
---				clicker:get_inventory():add_item("main", ItemStack("maptools:copper_coin"))
-				minetest.sound_play("default_snow_footstep", {object = self.object, gain = 0.3,})
+				minetest.sound_play("default_snow_footstep", {object = self.object, gain = 0.3})
 			end
 			self.object:set_properties({
 				textures = {"mobs_sheep_shaved.png"},
@@ -271,8 +281,15 @@ minetest.register_craftitem("carbone_mobs:sheep", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:sheep")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed a sheep at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed a sheep at " ..
+				minetest.pos_to_string(pointed_thing.above) ..
+				"."
+			)
 		end
+
 		return itemstack
 	end,
 })
@@ -307,10 +324,12 @@ carbone_mobs:register_mob("carbone_mobs:rat", {
 	walk_velocity = 0.8,
 	armor = 200,
 	drops = {
-		{name = "carbone_mobs:rat",
-		chance = 1,
-		min = 1,
-		max = 1,},
+		{
+			name = "carbone_mobs:rat",
+			chance = 1,
+			min = 1,
+			max = 1,
+		},
 	},
 	drawtype = "front",
 	water_damage = 1,
@@ -329,8 +348,15 @@ minetest.register_craftitem("carbone_mobs:rat", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:rat")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed a rat at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed a rat at " ..
+				minetest.pos_to_string(pointed_thing.above) ..
+				"."
+			)
 		end
+
 		return itemstack
 	end,
 })
@@ -375,14 +401,12 @@ carbone_mobs:register_mob("carbone_mobs:oerkki", {
 	run_velocity = 2.25,
 	damage = 3,
 	drops = {
-		{name = "default:obsidian",
-		chance = 1,
-		min = 4,
-		max = 4,},
---		{name = "maptools:silver_coin",
---		chance = 1,
---		min = 5,
---		max = 5,},
+		{
+			name = "default:obsidian",
+			chance = 1,
+			min = 4,
+			max = 4,
+		},
 	},
 	armor = 100,
 	drawtype = "front",
@@ -413,8 +437,15 @@ minetest.register_craftitem("carbone_mobs:oerkki", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:oerkki")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed an oerkki at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed an oerkki at " ..
+				minetest.pos_to_string(pointed_thing.above) ..
+				"."
+			)
 		end
+
 		return itemstack
 	end,
 })
@@ -433,18 +464,18 @@ carbone_mobs:register_mob("carbone_mobs:tree_monster", {
 	run_velocity = 1.6,
 	damage = 5,
 	drops = {
-		{name = "default:sapling",
-		chance = 1,
-		min = 4,
-		max = 4,},
-		{name = "default:junglesapling",
-		chance = 1,
-		min = 4,
-		max = 4,},
---		{name = "maptools:silver_coin",
---		chance = 1,
---		min = 6,
---		max = 6,},
+		{
+			name = "default:sapling",
+			chance = 1,
+			min = 4,
+			max = 4,
+		},
+		{
+			name = "default:junglesapling",
+			chance = 1,
+			min = 4,
+			max = 4,
+		},
 	},
 	armor = 80,
 	drawtype = "front",
@@ -476,8 +507,15 @@ minetest.register_craftitem("carbone_mobs:tree_monster", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:tree_monster")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed a tree monster at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed a tree monster at " ..
+				minetest.pos_to_string(pointed_thing.above) ..
+				"."
+			)
 		end
+
 		return itemstack
 	end,
 })
@@ -497,10 +535,12 @@ carbone_mobs:register_mob("carbone_mobs:trooper", {
 	run_velocity = 3,
 	damage = 1,
 	drops = {
-		{name = "carbone_mobs:trooper",
-		chance = 1,
-		min = 1,
-		max = 1,},
+		{
+			name = "carbone_mobs:trooper",
+			chance = 1,
+			min = 1,
+			max = 1,
+		},
 	},
 	armor = 100,
 	drawtype = "front",
@@ -530,8 +570,15 @@ minetest.register_craftitem("carbone_mobs:trooper", {
 			pointed_thing.above.y = pointed_thing.above.y + 0.5
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:trooper")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed a trooper at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed a trooper at " ..
+				minetest.pos_to_string(pointed_thing.above) ..
+				"."
+			)
 		end
+
 		return itemstack
 	end,
 })
@@ -550,14 +597,12 @@ carbone_mobs:register_mob("carbone_mobs:dungeon_master", {
 	run_velocity = 2,
 	damage = 8,
 	drops = {
-		{name = "default:mese_crystal",
-		chance = 1,
-		min = 1,
-		max = 1,},
---		{name = "maptools:silver_coin",
---		chance = 1,
---		min = 8,
---		max = 8,},
+		{
+			name = "default:mese_crystal",
+			chance = 1,
+			min = 1,
+			max = 1,
+		},
 	},
 	armor = 60,
 	drawtype = "front",
@@ -592,8 +637,15 @@ minetest.register_craftitem("carbone_mobs:dungeon_master", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:dungeon_master")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed a dungeon master at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed a dungeon master at " ..
+				minetest.pos_to_string(pointed_thing.above) ..
+				"."
+			)
 		end
+
 		return itemstack
 	end,
 })
@@ -615,14 +667,14 @@ carbone_mobs:register_arrow("carbone_mobs:fireball", {
 		for dx = -1, 1 do
 			for dy = -1, 1 do
 				for dz = -1, 1 do
-					local p = {x = pos.x + dx, y = pos.y + dy, z = pos.z + dz}
+					local find_pos = {x = pos.x + dx, y = pos.y + dy, z = pos.z + dz}
 					local n = minetest.get_node(pos).name
 					if n ~= "bedrock:bedrock"
 					and n ~= "default:chest_locked"
 					and n ~= "bones:bones"
 					and n ~= "default:chest"
 					and n ~= "default:furnace" then
-						minetest.dig_node(p)
+						minetest.dig_node(find_pos)
 					end
 						minetest.sound_play("mobs_fireball_explode", {
 						pos = pos,
@@ -632,7 +684,7 @@ carbone_mobs:register_arrow("carbone_mobs:fireball", {
 			end
 		end
 	end,
-	hit_node = function(self, pos, node)
+	hit_node = function(self, pos)
 		for dx = -1, 1 do
 			for dy = -2, 1 do
 				for dz = -1, 1 do
@@ -713,7 +765,12 @@ minetest.register_craftitem("carbone_mobs:rhino", {
 		if pointed_thing.above then
 			minetest.add_entity(pointed_thing.above, "carbone_mobs:rhino")
 			if not minetest.setting_getbool("creative_mode") then itemstack:take_item() end
-			minetest.log("action", placer:get_player_name() .. " placed a rhino at " .. minetest.pos_to_string(pointed_thing.above) .. ".")
+			minetest.log(
+				"action",
+				placer:get_player_name() ..
+				" placed a rhino at " ..
+				minetest.pos_to_string(pointed_thing.above) .. "."
+			)
 		end
 		return itemstack
 	end,
@@ -727,55 +784,140 @@ carbone_mobs:register_arrow("carbone_mobs:bullet", {
 	hit_player = function(self, player)
 		local s = self.object:getpos()
 		local p = player:getpos()
-		local vec = {x =s.x-p.x, y =s.y-p.y, z =s.z-p.z}
-		player:punch(self.object, 1.0,  {
-			full_punch_interval= 1.0,
+		local vec = {x = s.x - p.x, y = s.y - p.y, z = s.z - p.z}
+		player:punch(self.object, 1.0, {
+			full_punch_interval = 1.0,
 			damage_groups = {fleshy = 2},
 		}, vec)
-		local pos = self.object:getpos()
-		for dx = -1, 1 do
-			for dy = -1, 1 do
-				for dz = -1, 1 do
-					local p = {x = pos.x + dx, y = pos.y + dy, z = pos.z + dz}
-					local n = minetest.get_node(pos).name
-				end
-			end
-		end
 	end,
-	hit_node = function(self, pos, node)
-		for dx = -1, 1 do
-			for dy = -2, 1 do
-				for dz = -1, 1 do
-					local p = {x = pos.x + dx, y = pos.y + dy, z = pos.z + dz}
-					local n = minetest.get_node(pos).name
-				end
-			end
-		end
-	end
+	hit_node = function(self, pos) end
 })
 
--- carbone_mobs:register_spawn(name, description, nodes, max_light, min_light, chance, active_object_count, max_height)
+--[[
+	carbone_mobs:register_spawn(
+		name,
+		description,
+		nodes,
+		max_light,
+		min_light,
+		chance,
+		active_object_count,
+		max_height
+	)
+]]
 
-if not minetest.setting_getbool("creative_mode") then -- Disable all mob spawning in creative mode.
-	if minetest.setting_getbool("spawn_friendly_mobs") ~= false then -- “If nil or true then”
-		local rn = {"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"}
-		local sn = {"default:dirt_with_grass"}
-
-		carbone_mobs:register_spawn("carbone_mobs:rat", "two rats",                    rn, 16, -1, 7500, 6, 100)
-		carbone_mobs:register_spawn("carbone_mobs:sheep", "a sheep",                   sn, 16, 8, 20000, 2, 100)
+ -- Disable all mob spawning in creative mode
+if not minetest.setting_getbool("creative_mode") then
+	if minetest.setting_getbool("spawn_friendly_mobs") ~= false then
+		carbone_mobs:register_spawn(
+			"carbone_mobs:rat",
+			"two rats",
+			{"default:stone", "default:leaves", "default:jungleleaves", "default:cactus"},
+			16,
+			-1,
+			7500,
+			6,
+			100
+		)
+		carbone_mobs:register_spawn(
+			"carbone_mobs:sheep",
+			"a sheep",
+			{"default:dirt_with_grass"},
+			16,
+			8,
+			20000,
+			2,
+			100
+		)
 	end
-	if minetest.setting_getbool("spawn_hostile_mobs") ~= false then -- “If nil or true then”
-		local mn = {"default:stone", "default:desert_stone", "default:cobble", "default:mossycobble"}
+	if minetest.setting_getbool("spawn_hostile_mobs") ~= false then
+		local monster_nodes = {
+			"default:stone",
+			"default:desert_stone",
+			"default:cobble",
+			"default:mossycobble",
+		}
 
-		carbone_mobs:register_spawn("carbone_mobs:dirt_monster", "a dirt monster",     mn, 1, -1, 25000, 6, 0)
-		carbone_mobs:register_spawn("carbone_mobs:stone_monster", "a stone monster",   mn, 1, -1, 25000, 4, 0)
-		carbone_mobs:register_spawn("carbone_mobs:sand_monster", "a sand monster",     mn, 1, -1, 25000, 4, 0)
-		carbone_mobs:register_spawn("carbone_mobs:oerkki", "an oerkki",                mn, 1, -1, 25000, 4, 0)
-		carbone_mobs:register_spawn("carbone_mobs:tree_monster", "a tree monster",     mn, 1, -1, 25000, 2, 0)
-
-		carbone_mobs:register_spawn("carbone_mobs:trooper", "a trooper",               mn, 1, -1, 50000, 2, 0)
-		carbone_mobs:register_spawn("carbone_mobs:dungeon_master", "a dungeon master", mn, 1, -1, 50000, 2, -50)
-		carbone_mobs:register_spawn("carbone_mobs:rhino", "a rhino",                   mn, 1, -1, 50000, 2, 0)
+		carbone_mobs:register_spawn(
+			"carbone_mobs:dirt_monster",
+			"a dirt monster",
+			monster_nodes,
+			1,
+			-1,
+			25000,
+			6,
+			0
+		)
+		carbone_mobs:register_spawn(
+			"carbone_mobs:stone_monster",
+			"a stone monster",
+			monster_nodes,
+			1,
+			-1,
+			25000,
+			4,
+			0
+		)
+		carbone_mobs:register_spawn(
+			"carbone_mobs:sand_monster",
+			"a sand monster",
+			monster_nodes,
+			1,
+			-1,
+			25000,
+			4,
+			0
+		)
+		carbone_mobs:register_spawn(
+			"carbone_mobs:oerkki",
+			"an oerkki",
+			monster_nodes,
+			1,
+			-1,
+			25000,
+			4,
+			0
+		)
+		carbone_mobs:register_spawn(
+			"carbone_mobs:tree_monster",
+			"a tree monster",
+			monster_nodes,
+			1,
+			-1,
+			25000,
+			2,
+			0
+		)
+		carbone_mobs:register_spawn(
+			"carbone_mobs:trooper",
+			"a trooper",
+			monster_nodes,
+			1,
+			-1,
+			50000,
+			2,
+			0
+		)
+		carbone_mobs:register_spawn(
+			"carbone_mobs:dungeon_master",
+			"a dungeon master",
+			monster_nodes,
+			1,
+			-1,
+			50000,
+			2,
+			-50
+		)
+		carbone_mobs:register_spawn(
+			"carbone_mobs:rhino",
+			"a rhino",
+			monster_nodes,
+			1,
+			-1,
+			50000,
+			2,
+			0
+		)
 	end
 end
 
