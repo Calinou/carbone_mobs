@@ -16,7 +16,7 @@ http://wiki.minetest.com/wiki/Installing_Mods
 How to use the mod:
 See https://github.com/PilzAdam/mobs/wiki
 
-This mod can be configured via following minetest.conf variables: 
+This mod can be configured via following minetest.conf variables:
 ( reminder: minetest.conf lines starting with "#" are comments )
 
 * display_mob_spawn = true -> show you a message in the chat when a mob spawns. see https://github.com/PilzAdam/mobs/wiki
@@ -31,7 +31,7 @@ So instead you can directly use this to avoid false-alarming spawn messages...
 For developers:
 The API documentation is moved to https://github.com/PilzAdam/mobs/wiki/API
 
-Some internal details: 
+Some internal details:
 
 * armor: lower values means better armor, means you need a better weapon to hurt it.
          see e.g. https://github.com/PilzAdam/mobs/wiki/Dungeon-Master:
@@ -58,4 +58,4 @@ http://minetest.net/
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
-  0. You just DO WHAT THE FUCK YOU WANT TO. 
+  0. You just DO WHAT THE FUCK YOU WANT TO.
