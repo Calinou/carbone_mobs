@@ -525,7 +525,7 @@ carbone_mobs:register_mob("carbone_mobs:trooper", {
 	hp_max = 20,
 	collisionbox = {-0.3, -1.0, -0.3, 0.3, 0.8, 0.3},
 	visual = "mesh",
-	mesh = "character.x",
+	mesh = "character.b3d",
 	textures = {"character.png"},
 	visual_size = {x = 1, y = 1},
 	makes_footstep_sound = true,
