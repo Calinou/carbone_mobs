@@ -937,5 +937,5 @@ minetest.register_alias("mobs:meat_raw", "carbone_mobs:meat_raw")
 minetest.register_alias("mobs:meat", "carbone_mobs:meat")
 
 if minetest.setting_getbool("log_mods") then
-	minetest.log("action", "Carbone: [mobs] loaded.")
+	minetest.log("action", "[carbone_mobs] loaded.")
 end
